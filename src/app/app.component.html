@@ -3,11 +3,16 @@
 <button (click)="navInput()">Input</button>
 <button (click)="navFavorite()">Favorite</button>
 
+<br>
+<h3>LIST NOTES</h3>
 <div *ngFor="let note of notes; let i as index">
   {{note.judul}} <br />
   {{note.isi}} <br />
   {{note.tanggal}} <br />
-  <button (click)="addFav(i)">Add to Favorite</button>
+  <button (click)="addFav(i)" *ngIf="!dataFavorite[i]">Add to Favorite</button>
+  <button (click)="removeFav(i)" *ngIf="dataFavorite[i]">
+    Remove from Favorite
+  </button>
 </div>
 
 <router-outlet></router-outlet>

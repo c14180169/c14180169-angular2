@@ -47,7 +47,11 @@ export class AppComponent {
   }
 
   addFav(index){
+    this.dataFavorite[index] = true
+  }
 
+  removeFav(index){
+    this.dataFavorite[index] = false;
   }
 
   navInput() {

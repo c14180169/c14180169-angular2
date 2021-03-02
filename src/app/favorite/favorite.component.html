@@ -1,0 +1,10 @@
+<br />
+<h3>FAVORITES</h3>
+
+<div *ngFor="let note of notes; let i as index">
+  <div *ngIf="dataFavorite[i]">
+    {{note.judul}} <br />
+    {{note.isi}} <br />
+    {{note.tanggal}} <br />
+  </div>
+</div>
