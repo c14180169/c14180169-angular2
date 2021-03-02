@@ -10,18 +10,31 @@ import { GlobalNoteService } from "../global-note.service";
 export class AppComponent {
 
   notes = [];
-  dataJudul: String[] = [];
-  dataIsi: String[] = [];
-  dataTanggal: String[] = [];
+  dataJudul: String[];
+  dataIsi: String[];
+  dataTanggal: String[];
+  dataFavorite: Boolean[];
 
-  constructor(private router: Router, public globVar : GlobalNoteService) {
-    this.dataJudul = globVar.getDataJudul();
-    this.dataIsi = globVar.getDataIsi();
-    this.dataTanggal = globVar.getDataTanggal();
+
+  initData(){
+    this.dataJudul = this.globVar.DataJudul;
+    this.dataIsi = this.globVar.DataIsi;
+    this.dataTanggal = this.globVar.DataTanggal;
+    this.dataFavorite = this.globVar.DataFavorite;
     this.simplifyNotes();
-   
+
+    console.log(this.globVar.getDataJudul());
+    console.log(this.globVar.getDataIsi());
+    console.log(this.globVar.getDataTanggal());
   }
 
+  ngOnInit(){
+    this.initData();
+  }
+
+  constructor(private router: Router, public globVar : GlobalNoteService) {}
+
+  
   simplifyNotes(){
     for(let i=0;i<this.dataJudul.length;i++){
       var note = {
@@ -31,6 +44,10 @@ export class AppComponent {
       };
       this.notes.push(note);
     }
+  }
+
+  addFav(index){
+
   }
 
   navInput() {

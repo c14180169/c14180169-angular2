@@ -2,13 +2,15 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class GlobalNoteService {
-  private DataJudul: String[] = [];
-  private DataIsi: String[] = [];
-  private DataTanggal: String[] = [];
+  public DataJudul: String[] = ["judul satu"];
+  public DataIsi: String[] = ["isi satu"];
+  public DataTanggal: String[] = ["tanggal satu"];
+  public DataFavorite: Boolean[] = [false];
 
   constructor() {}
 
   public getDataJudul() {
+    console.log(this.DataJudul.length);
     return this.DataJudul;
   }
 
@@ -20,9 +22,14 @@ export class GlobalNoteService {
     return this.DataTanggal;
   }
 
+  public getDataFavorite() {
+    return this.DataFavorite;
+  }
+
   public setData(dataJudulBaru, dataIsiBaru, dataTanggalBaru) {
     this.DataJudul.push(dataJudulBaru);
     this.DataIsi.push(dataIsiBaru);
     this.DataTanggal.push(dataTanggalBaru);
+    this.DataFavorite.push(false);
   }
 }

@@ -13,7 +13,9 @@ export class InputComponent implements OnInit {
 
   constructor(public globVar: GlobalNoteService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.globVar.getDataJudul());
+  }
 
   addData() {
     this.globVar.setData(this.judul, this.isi, this.tanggal);
