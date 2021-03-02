@@ -1,4 +1,12 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<h3>HOME</h3>
+
+<button (click)="navInput()">Input</button>
+<button (click)="navFavorite()">Favorite</button>
+
+<div *ngFor="let note of notes">
+  {{note.judul}} <br />
+  {{note.isi}} <br />
+  {{note.tanggal}} <br />
+</div>
+
+<router-outlet></router-outlet>
